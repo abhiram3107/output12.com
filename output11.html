@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Form</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <table id="taskTable" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Priority</th>
+                <th>Description</th>
+                <th>Estimated Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Task data will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById("taskForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            
+            // Get form data
+            var name = document.getElementById("name").value;
+            var priority = document.getElementById("priority").value;
+            var description = document.getElementById("description").value;
+            var estimatedTime = document.getElementById("estimatedTime").value;
+            
+            // Create a new row for the table
+            var newRow = document.createElement("tr");
+            
+            // Add data to the new row
+            newRow.innerHTML = "<td>" + name + "</td><td>" + priority + "</td><td>" + description + "</td><td>" + estimatedTime + "</td>";
+            
+            // Append the new row to the table body
+            document.querySelector("#taskTable tbody").appendChild(newRow);
+            
+            // Clear the form inputs
+            document.getElementById("name").value = "";
+            document.getElementById("priority").value = "";
+            document.getElementById("description").value = "";
+            document.getElementById("estimatedTime").value = "";
+        });
+    </script>
+</body>
+</html>
+    
